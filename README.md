@@ -52,7 +52,7 @@ A API estará disponível em `http://localhost:8080`.
 
 - `/conjugate?verbo=<verbo>` → Retorna a conjugação completa do verbo.
 
-## Exemplo de uso (Presente do Indicativo)
+## Exemplo de uso
 
 ```bash
 curl -s "http://localhost:8080/conjugate?verbo=amar"
