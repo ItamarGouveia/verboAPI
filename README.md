@@ -10,6 +10,11 @@
 - Estrutura simples e modular.
 - API leve e rápida, totalmente em **Go**.
 
+## Limitações Atuais
+
+- Verbos não regulares e defectivos ainda não estão totalmente suportados.
+- Planejamos corrigir essas questões nas próximas atualizações.
+
 ## Estrutura do Projeto
 
 ```
@@ -43,118 +48,40 @@ go run main.go
 
 A API estará disponível em `http://localhost:8080`.
 
-4. Exemplo de uso (Presente do Indicativo):
+## Endpoints Disponíveis
+
+- `/conjugate?verbo=<verbo>` → Retorna a conjugação completa do verbo.
+
+## Exemplo de uso (Presente do Indicativo)
 
 ```bash
-curl http://localhost:8080/conjugate?verbo=falar
+curl -s "http://localhost:8080/conjugate?verbo=amar"
 ```
 
 Resposta esperada:
 
 ```json
 {
-"indicativo": {
-"futuro_presente": [
-"eu amarei",
-"tu amarás",
-"ele amará",
-"nós amaremos",
-"vós amareis",
-"eles amarão"
-],
-"futuro_preterito": [
-"eu amaria",
-"tu amarias",
-"ele amaria",
-"nós amaríamos",
-"vós amaríeis",
-"eles amariam"
-],
-"mais_que_perfeito": [
-"eu amara",
-"tu amaras",
-"ele amara",
-"nós amáramos",
-"vós amáreis",
-"eles amaram"
-],
-"presente": [
-"eu amo",
-"tu amas",
-"ele ama",
-"nós amamos",
-"vós amais",
-"eles amam"
-],
-"preterito_imperfeito": [
-"eu amava",
-"tu amavas",
-"ele amava",
-"nós amávamos",
-"vós amáveis",
-"eles amavam"
-],
-"preterito_perfeito": [
-"eu amei",
-"tu amaste",
-"ele amou",
-"nós amamos",
-"vós amastes",
-"eles amaram"
-]
-},
-"subjuntivo": {
-"futuro": [
-"quando eu amar",
-"quando tu amares",
-"quando ele amar",
-"quando nós amarmos",
-"quando vós amardes",
-"quando eles amarem"
-],
-"presente": [
-"que eu ame",
-"que tu ames",
-"que ele ame",
-"que nós amemos",
-"que vós ameis",
-"que eles amem"
-],
-"preterito_imperfeito": [
-"se eu amasse",
-"se tu amasses",
-"se ele amasse",
-"se nós amássemos",
-"se vós amásseis",
-"se eles amassem"
-]
-},
-"imperativo": {
-"afirmativo": [
-"ama tu",
-"ame você",
-"amemos nós",
-"amai vós ",
-"amem vocês"
-],
-"negativo": [
-"não ames tu",
-"não ame você",
-"não amemos nós",
-"não ameis vós",
-"não amem vocês"
-]
-},
-"infinitivo": {
-"pessoal": [
-"por amar eu",
-"por amares tu",
-"por amar ele",
-"por amarmos nós",
-"por amardes vós",
-"por amarem eles"
-]
-}
+  "indicativo": {
+    "futuro_presente": ["eu amarei","tu amarás","ele amará","nós amaremos","vós amareis","eles amarão"],
+    "futuro_preterito": ["eu amaria","tu amarias","ele amaria","nós amaríamos","vós amaríeis","eles amariam"],
+    "mais_que_perfeito": ["eu amara","tu amaras","ele amara","nós amáramos","vós amáreis","eles amaram"],
+    "presente": ["eu amo","tu amas","ele ama","nós amamos","vós amais","eles amam"],
+    "preterito_imperfeito": ["eu amava","tu amavas","ele amava","nós amávamos","vós amáveis","eles amavam"],
+    "preterito_perfeito": ["eu amei","tu amaste","ele amou","nós amamos","vós amastes","eles amaram"]
+  },
+  "subjuntivo": {
+    "futuro": ["quando eu amar","quando tu amares","quando ele amar","quando nós amarmos","quando vós amardes","quando eles amarem"],
+    "presente": ["que eu ame","que tu ames","que ele ame","que nós amemos","que vós ameis","que eles amem"],
+    "preterito_imperfeito": ["se eu amasse","se tu amasses","se ele amasse","se nós amássemos","se vós amásseis","se eles amassem"]
+  },
+  "imperativo": {
+    "afirmativo": ["ama tu","ame você","amemos nós","amai vós","amem vocês"],
+    "negativo": ["não ames tu","não ame você","não amemos nós","não ameis vós","não amem vocês"]
+  },
+  "infinitivo": {
+    "pessoal": ["por amar eu","por amares tu","por amar ele","por amarmos nós","por amardes vós","por amarem eles"]
+  }
 }
 ```
 
@@ -171,4 +98,3 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir **issues** ou en
 ## Licença
 
 Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
